@@ -31,7 +31,7 @@ final class EssentialFeedTests: XCTestCase {
 
         let clientError = NSError(domain: "", code: 0)
 
-        expect(sut, error: .connectivity) {
+        expect(sut, with: .failure(.connectivity)) {
             client.complete(with: clientError)
         }
     }
@@ -41,7 +41,7 @@ final class EssentialFeedTests: XCTestCase {
 
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, statusCode in
-            expect(sut, error: .invalidData) {
+            expect(sut, with: .failure(.invalidData)) {
                 client.complete(withStatusCode: statusCode, at: index)
             }
         }
@@ -50,14 +50,58 @@ final class EssentialFeedTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
 
-        expect(sut, error: .invalidData) {
+        expect(sut, with: .failure(.invalidData)) {
             let invalidJSON = Data("invalid.json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         }
     }
 
     func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+        let (sut, client) = makeSUT()
 
+        expect(sut, with: .success([]), when: {
+            let emptyJSON = Data("{\"items\": []}".utf8)
+            client.complete(withStatusCode: 200, data: emptyJSON)
+        })
+    }
+
+    func test_load_deliversNoItemsOn200HTTPResponseWithJSONList() {
+        let (sut, client) = makeSUT()
+
+        let firstItem = FeedItem(
+            id: UUID(),
+            description: nil,
+            location: nil,
+            imageURL: URL(string: "https://some.url.com")!
+        )
+
+        let firstItemJSON = [
+            "id": firstItem.id.uuidString,
+            "image": firstItem.imageURL.absoluteString
+        ]
+
+        let secondItem = FeedItem(
+            id: UUID(),
+            description: "description",
+            location: "location",
+            imageURL: URL(string: "https://some.url.com")!
+        )
+
+        let secondItemJSON = [
+            "id": secondItem.id.uuidString,
+            "description": "description",
+            "location": "location",
+            "image": secondItem.imageURL.absoluteString
+        ]
+
+        let itemsJSON = [
+            "items": [firstItemJSON, secondItemJSON]
+        ]
+
+        expect(sut, with: .success([firstItem, secondItem]), when: {
+            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        })
     }
 
     // MARK: - Helpers
@@ -70,14 +114,14 @@ final class EssentialFeedTests: XCTestCase {
         return (sut, client)
     }
 
-    private func expect(_ sut: RemoteFeedLoader, error: RemoteFeedLoader.Error, when action: @escaping () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: RemoteFeedLoader, with result: RemoteFeedLoader.Result, when action: @escaping () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         var capturedResults = [RemoteFeedLoader.Result]()
 
         sut.load { capturedResults.append($0) }
 
         action()
 
-        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
+        XCTAssertEqual(capturedResults, [result], file: file, line: line)
     }
 
     class HTTPClientSpy: HTTPClient {
