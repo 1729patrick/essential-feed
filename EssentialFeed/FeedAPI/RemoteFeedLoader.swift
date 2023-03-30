@@ -59,7 +59,7 @@ private class FeedItemsMapper {
          let items: [Item]
      }
 
-    struct Item: Equatable {
+    struct Item: Decodable {
         let id: UUID
         let description: String?
         let location: String?
@@ -80,7 +80,7 @@ private class FeedItemsMapper {
             throw RemoteFeedLoader.Error.invalidData
         }
 
-        let root = try! JSONDecoder().decode(Root.self, from: data)
+        let root = try JSONDecoder().decode(Root.self, from: data)
 
         return root.items.map { $0.feedItem }
     }

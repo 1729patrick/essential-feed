@@ -31,7 +31,7 @@ final class EssentialFeedTests: XCTestCase {
 
         let clientError = NSError(domain: "", code: 0)
 
-        expect(sut, with: .failure(.connectivity)) {
+        expect(sut, toCompleteWith: .failure(.connectivity)) {
             client.complete(with: clientError)
         }
     }
@@ -41,8 +41,8 @@ final class EssentialFeedTests: XCTestCase {
 
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, statusCode in
-            expect(sut, with: .failure(.invalidData)) {
-                let json = makeItemsJSON([])
+            expect(sut, toCompleteWith: .failure(.invalidData)) {
+                let json = self.makeItemsJSON([])
                 client.complete(withStatusCode: statusCode, data: json, at: index)
             }
         }
@@ -51,7 +51,7 @@ final class EssentialFeedTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
 
-        expect(sut, with: .failure(.invalidData)) {
+        expect(sut, toCompleteWith: .failure(.invalidData)) {
             let invalidJSON = Data("invalid.json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         }
@@ -60,8 +60,8 @@ final class EssentialFeedTests: XCTestCase {
     func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSUT()
 
-        expect(sut, with: .success([]), when: {
-            let emptyJSON = Data("{\"items\": []}".utf8)
+        expect(sut, toCompleteWith: .success([]), when: {
+            let emptyJSON = self.makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyJSON)
         })
     }
@@ -83,7 +83,7 @@ final class EssentialFeedTests: XCTestCase {
             imageURL: URL(string: "https://some.url.com")!
         )
 
-        expect(sut, with: .success([firstItem.model, secondItem.model]), when: {
+        expect(sut, toCompleteWith: .success([firstItem.model, secondItem.model]), when: {
             let itemsJSON = self.makeItemsJSON([firstItem.json, secondItem.json])
             
             client.complete(withStatusCode: 200, data: itemsJSON)
@@ -124,7 +124,7 @@ final class EssentialFeedTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: itemsJSON)
     }
 
-    private func expect(_ sut: RemoteFeedLoader, with result: RemoteFeedLoader.Result, when action: @escaping () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    private func expect(_ sut: RemoteFeedLoader, toCompleteWith result: RemoteFeedLoader.Result, when action: @escaping () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         var capturedResults = [RemoteFeedLoader.Result]()
 
         sut.load { capturedResults.append($0) }
