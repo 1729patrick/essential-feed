@@ -9,13 +9,13 @@ import XCTest
 @testable import EssentialFeed
 
 final class EssentialFeedTests: XCTestCase {
-    func testDoesNotRequestDataFromURL() {
+    func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
 
         XCTAssertNil(client.requestedURL)
     }
 
-    func testRequestDataFromURL() {
+    func test_init_requestsDataFromURL() {
         let url = URL(string: "https://some-url.com.mt")!
 
         let (sut, client) = makeSUT(url: url)

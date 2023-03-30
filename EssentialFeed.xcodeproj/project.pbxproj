@@ -101,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC3184629D5C92700922866 /* EssentialFeedTests.swift */,
+				3BC3186829D5E6BC00922866 /* New Group */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -120,6 +121,13 @@
 				3BC3186629D5E52400922866 /* RemoteFeedLoader.swift */,
 			);
 			path = FeedAPI;
+			sourceTree = "<group>";
+		};
+		3BC3186829D5E6BC00922866 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
