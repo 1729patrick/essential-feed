@@ -66,18 +66,18 @@ final class EssentialFeedTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        var messages = [(url: URL, completion: (Error?, HTTPURLResponse?) -> Void)]()
+        var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
 
         var requestedURLs: [URL] {
             messages.map { $0.url }
         }
 
-        func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void = { _, _ in }) {
+        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void = { _ in }) {
             messages.append((url, completion))
         }
 
         func complete(with error: Error, at index: Int = .zero) {
-            messages[index].completion(error, nil)
+            messages[index].completion(.failure(error))
         }
 
         func complete(withStatusCode statusCode: Int, at index: Int = .zero) {
@@ -86,9 +86,9 @@ final class EssentialFeedTests: XCTestCase {
                 statusCode: statusCode,
                 httpVersion: nil,
                 headerFields: nil
-            )
+            )!
 
-            messages[index].completion(nil, response)
+            messages[index].completion(.success(response))
         }
 
     }
