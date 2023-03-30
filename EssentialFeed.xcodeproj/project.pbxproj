@@ -12,8 +12,8 @@
 		3BC3183A29D5C92700922866 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC3183929D5C92700922866 /* Assets.xcassets */; };
 		3BC3183D29D5C92700922866 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC3183C29D5C92700922866 /* Preview Assets.xcassets */; };
 		3BC3184729D5C92700922866 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3184629D5C92700922866 /* EssentialFeedTests.swift */; };
-		3BC3185129D5C92800922866 /* EssentialFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3185029D5C92800922866 /* EssentialFeedUITests.swift */; };
-		3BC3185329D5C92800922866 /* EssentialFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3185229D5C92800922866 /* EssentialFeedUITestsLaunchTests.swift */; };
+		3BC3186129D5C97B00922866 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3186029D5C97B00922866 /* FeedItem.swift */; };
+		3BC3186429D5CAD000922866 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3186329D5CAD000922866 /* FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		3BC3184229D5C92700922866 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC3184629D5C92700922866 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		3BC3184C29D5C92800922866 /* EssentialFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BC3185029D5C92800922866 /* EssentialFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedUITests.swift; sourceTree = "<group>"; };
-		3BC3185229D5C92800922866 /* EssentialFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BC3186029D5C97B00922866 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		3BC3186329D5CAD000922866 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,6 @@
 			children = (
 				3BC3183429D5C92400922866 /* EssentialFeed */,
 				3BC3184529D5C92700922866 /* EssentialFeedTests */,
-				3BC3184F29D5C92800922866 /* EssentialFeedUITests */,
 				3BC3183329D5C92400922866 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +93,7 @@
 		3BC3183429D5C92400922866 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				3BC3185F29D5C96600922866 /* FeedFeature */,
 				3BC3183529D5C92400922866 /* EssentialFeedApp.swift */,
 				3BC3183729D5C92400922866 /* ContentView.swift */,
 				3BC3183929D5C92700922866 /* Assets.xcassets */,
@@ -118,13 +118,13 @@
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
 		};
-		3BC3184F29D5C92800922866 /* EssentialFeedUITests */ = {
+		3BC3185F29D5C96600922866 /* FeedFeature */ = {
 			isa = PBXGroup;
 			children = (
-				3BC3185029D5C92800922866 /* EssentialFeedUITests.swift */,
-				3BC3185229D5C92800922866 /* EssentialFeedUITestsLaunchTests.swift */,
+				3BC3186029D5C97B00922866 /* FeedItem.swift */,
+				3BC3186329D5CAD000922866 /* FeedLoader.swift */,
 			);
-			path = EssentialFeedUITests;
+			path = FeedFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +259,8 @@
 			files = (
 				3BC3183829D5C92400922866 /* ContentView.swift in Sources */,
 				3BC3183629D5C92400922866 /* EssentialFeedApp.swift in Sources */,
+				3BC3186429D5CAD000922866 /* FeedLoader.swift in Sources */,
+				3BC3186129D5C97B00922866 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BC3185129D5C92800922866 /* EssentialFeedUITests.swift in Sources */,
-				3BC3185329D5C92800922866 /* EssentialFeedUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
