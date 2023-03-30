@@ -21,8 +21,9 @@ final class EssentialFeedTests: XCTestCase {
         let (sut, client) = makeSUT(url: url)
 
         sut.load()
+        sut.load()
 
-        XCTAssertEqual(client.requestedURL, url)
+        XCTAssertEqual(client.requestedURLs, [url, url])
     }
 
     // MARK: - Helpers
@@ -37,9 +38,11 @@ final class EssentialFeedTests: XCTestCase {
 
     class HTTPClientSpy: HTTPClient {
         var requestedURL: URL?
+        var requestedURLs = [URL]()
 
        func get(from url: URL) {
             self.requestedURL = url
+           requestedURLs.append(url)
         }
     }
 }
