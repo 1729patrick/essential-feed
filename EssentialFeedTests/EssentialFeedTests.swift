@@ -18,7 +18,7 @@ class RemoteFeedLoader {
     }
 
     func load() {
-        client.get(from: URL(string: "https://some-url.com.mt")!)
+        client.get(from: url)
     }
 }
 
@@ -36,7 +36,6 @@ class HTTPClientSpy: HTTPClient {
 
 
 final class EssentialFeedTests: XCTestCase {
-
     func testDoesNotRequestDataFromURL() {
         let client = HTTPClientSpy()
 
