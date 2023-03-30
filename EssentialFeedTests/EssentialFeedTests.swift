@@ -56,6 +56,10 @@ final class EssentialFeedTests: XCTestCase {
         }
     }
 
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+
+    }
+
     // MARK: - Helpers
     // SUT = system under test
     private func makeSUT(url: URL = URL(string: "https://some-url.com.mt")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
@@ -67,13 +71,13 @@ final class EssentialFeedTests: XCTestCase {
     }
 
     private func expect(_ sut: RemoteFeedLoader, error: RemoteFeedLoader.Error, when action: @escaping () -> Void, file: StaticString = #filePath, line: UInt = #line) {
-        var capturedErrors = [RemoteFeedLoader.Error]()
+        var capturedResults = [RemoteFeedLoader.Result]()
 
-        sut.load { capturedErrors.append($0) }
+        sut.load { capturedResults.append($0) }
 
         action()
 
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
 
     class HTTPClientSpy: HTTPClient {
