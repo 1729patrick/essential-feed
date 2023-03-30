@@ -34,7 +34,7 @@ final class EssentialFeedTests: XCTestCase {
         sut.load { capturedErrors.append($0) }
 
         let clientError = NSError(domain: "", code: 0)
-        client.completions.first!(clientError)
+        client.complete(with: clientError)
 
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
@@ -57,6 +57,10 @@ final class EssentialFeedTests: XCTestCase {
             completions.append(completion)
 
             requestedURLs.append(url)
+        }
+
+        func complete(with error: Error, at index: Int = .zero) {
+            completions[index](error)
         }
     }
 }
