@@ -12,7 +12,7 @@ final class EssentialFeedTests: XCTestCase {
     func test_init_doesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
 
-        XCTAssertNil(client.requestedURL)
+        XCTAssert(client.requestedURLs.isEmpty)
     }
 
     func test_init_requestsDataFromURL() {
@@ -37,11 +37,9 @@ final class EssentialFeedTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        var requestedURL: URL?
         var requestedURLs = [URL]()
 
        func get(from url: URL) {
-            self.requestedURL = url
            requestedURLs.append(url)
         }
     }
