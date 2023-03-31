@@ -102,7 +102,7 @@ final class EssentialFeedTests: XCTestCase {
         sut = nil
 
         client.complete(withStatusCode: 200, data: makeItemsJSON([]))
-        
+
         XCTAssertTrue(capturedResults.isEmpty)
     }
 
