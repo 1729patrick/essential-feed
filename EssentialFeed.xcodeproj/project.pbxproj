@@ -19,6 +19,7 @@
 		3BC3186C29D6CE1F00922866 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3186B29D6CE1F00922866 /* FeedItemsMapper.swift */; };
 		3BC3186F29D6EF9500922866 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3186E29D6EF9500922866 /* URLSessionHTTPClientTests.swift */; };
 		3BC3187229D7501100922866 /* XCTestCase+trackForMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3187129D7501100922866 /* XCTestCase+trackForMemoryLeaks.swift */; };
+		3BC3187429D75FF900922866 /* URLSessionHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		3BC3186B29D6CE1F00922866 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		3BC3186E29D6EF9500922866 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		3BC3187129D7501100922866 /* XCTestCase+trackForMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+trackForMemoryLeaks.swift"; sourceTree = "<group>"; };
+		3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				3BC3186629D5E52400922866 /* RemoteFeedLoader.swift */,
 				3BC3186B29D6CE1F00922866 /* FeedItemsMapper.swift */,
 				3BC3186929D6CD8D00922866 /* HTTPClient.swift */,
+				3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				3BC3183829D5C92400922866 /* ContentView.swift in Sources */,
 				3BC3183629D5C92400922866 /* EssentialFeedApp.swift in Sources */,
 				3BC3186A29D6CD8D00922866 /* HTTPClient.swift in Sources */,
+				3BC3187429D75FF900922866 /* URLSessionHttpClient.swift in Sources */,
 				3BC3186C29D6CE1F00922866 /* FeedItemsMapper.swift in Sources */,
 				3BC3186429D5CAD000922866 /* FeedLoader.swift in Sources */,
 				3BC3186729D5E52400922866 /* RemoteFeedLoader.swift in Sources */,
