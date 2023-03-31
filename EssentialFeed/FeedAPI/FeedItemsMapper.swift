@@ -12,7 +12,7 @@ final class FeedItemsMapper {
         let items: [Item]
 
         var feedItems: [FeedItem] {
-            root.items.map { $0.feedItem }
+            items.map { $0.feedItem }
         }
     }
 
