@@ -87,7 +87,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     }
 
     private func anyData() -> Data {
-        return Data(bytes: "any data".utf8)
+        return Data("any data".utf8)
     }
 
     private func anyNSError() -> NSError {
@@ -177,8 +177,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
 
         override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
-            return true
+            true
         }
 
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
@@ -186,6 +185,11 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
 
         override func startLoading() {
+            if let requestObserver = URLProtocolStub.requestObserver {
+                client?.urlProtocolDidFinishLoading(self)
+                return requestObserver(request)
+            }
+
             guard let stub = URLProtocolStub.stub else { return }
 
             if let data = stub.data {
