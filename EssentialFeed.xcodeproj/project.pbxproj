@@ -26,6 +26,7 @@
 		3BC3187429D75FF900922866 /* URLSessionHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */; };
 		3BDA03DD29D8B5760059EBCC /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03DC29D8B5760059EBCC /* LocalFeedLoader.swift */; };
 		3BDA03DF29D8B5D00059EBCC /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03DE29D8B5D00059EBCC /* FeedStore.swift */; };
+		3BDA03E129D8E3060059EBCC /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03E029D8E3060059EBCC /* RemoteFeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClient.swift; sourceTree = "<group>"; };
 		3BDA03DC29D8B5760059EBCC /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		3BDA03DE29D8B5D00059EBCC /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
+		3BDA03E029D8E3060059EBCC /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				3BC3186B29D6CE1F00922866 /* FeedItemsMapper.swift */,
 				3BC3186929D6CD8D00922866 /* HTTPClient.swift */,
 				3BC3187329D75FF900922866 /* URLSessionHttpClient.swift */,
+				3BDA03E029D8E3060059EBCC /* RemoteFeedItem.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				3BC3186C29D6CE1F00922866 /* FeedItemsMapper.swift in Sources */,
 				3BC3186429D5CAD000922866 /* FeedLoader.swift in Sources */,
 				3BC3186729D5E52400922866 /* RemoteFeedLoader.swift in Sources */,
+				3BDA03E129D8E3060059EBCC /* RemoteFeedItem.swift in Sources */,
 				3BC3186129D5C97B00922866 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
