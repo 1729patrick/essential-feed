@@ -31,10 +31,29 @@ final class RemoteFeedLoader: FeedLoader {
 
             switch result {
             case .success(let data, let response):
-                completion(FeedItemsMapper.map(data, response))
-            case .failure(let error):
+                completion(RemoteFeedLoader.map(data, from: response))
+            case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
     }
+
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+        do {
+            let items = try FeedItemsMapper.map(data, response)
+            return .success(items.toModels())
+        } catch {
+            return .failure(error)
+        }
+    }
 }
+
+extension Array where Element == RemoteFeedItem {
+    func toModels() -> [FeedItem] {
+        map {
+            FeedItem(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.image)
+        }
+    }
+}
+
+
