@@ -18,7 +18,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func test_save_requestsCacheDeletion() {
         let (store, sut) = makeSUT()
 
-        sut.save(uniqueItems().models) { _ in }
+        sut.save(uniqueFeedImage().models) { _ in }
 
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
     }
@@ -28,7 +28,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
 
         let deletionError = anyNSError()
 
-        sut.save(uniqueItems().models) { _ in }
+        sut.save(uniqueFeedImage().models) { _ in }
         store.completeDeletion(with: deletionError)
 
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
@@ -38,12 +38,12 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let timestamp = Date()
 
         let (store, sut) = makeSUT(currentDate: { timestamp })
-        let items = uniqueItems()
+        let feed = uniqueFeedImage()
 
-        sut.save(items.models) { _ in }
+        sut.save(feed.models) { _ in }
         store.completeDeletionSuccessfully()
 
-        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed, .insert(items.local, timestamp)])
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed, .insert(feed.local, timestamp)])
     }
 
     func test_save_failsOnDeletionError() {
@@ -79,7 +79,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
 
         var receivedResults = [LocalFeedLoader.SaveResult]()
-        sut?.save(uniqueItems().models) { receivedResults.append($0) }
+        sut?.save(uniqueFeedImage().models) { receivedResults.append($0) }
 
         sut = nil
 
@@ -93,7 +93,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
 
         var receivedResults = [LocalFeedLoader.SaveResult]()
-        sut?.save(uniqueItems().models) { receivedResults.append($0) }
+        sut?.save(uniqueFeedImage().models) { receivedResults.append($0) }
 
         store.completeDeletionSuccessfully()
         sut = nil
@@ -118,7 +118,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let exp = expectation(description: "Wait for save completion")
 
         var receivedError: Error?
-        sut.save(uniqueItems().models) { error in
+        sut.save(uniqueFeedImage().models) { error in
             receivedError = error
             exp.fulfill()
         }
@@ -129,19 +129,19 @@ final class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
 
-    func uniqueItem() -> FeedItem {
-        FeedItem(
+    func uniqueImage() -> FeedImage {
+        FeedImage(
             id: UUID(),
             description: "any description",
             location: "any location",
-            imageURL: URL(string: "https://www.image.com.mt")!
+            url: URL(string: "https://www.image.com.mt")!
         )
     }
 
-    func uniqueItems() -> (models: [FeedItem], local: [LocalFeedItem]) {
-        let models = [uniqueItem(), uniqueItem()]
+    func uniqueFeedImage() -> (models: [FeedImage], local: [LocalFeedItem]) {
+        let models = [uniqueImage(), uniqueImage()]
         let local = models.map {
-            LocalFeedItem(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.imageURL)
+            LocalFeedItem(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.url)
         }
 
         return (models, local)
@@ -183,9 +183,9 @@ final class CacheFeedUseCaseTests: XCTestCase {
             insertionCompletions[index](nil)
         }
 
-        func insert(_ items: [LocalFeedItem], timestamp: Date, completion: @escaping InsertionCompletion) {
+        func insert(_ feed: [LocalFeedItem], timestamp: Date, completion: @escaping InsertionCompletion) {
             insertionCompletions.append(completion)
-            receivedMessages.append(.insert(items, timestamp))
+            receivedMessages.append(.insert(feed, timestamp))
         }
     }
 }
