@@ -104,6 +104,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     }
 
     // MARK: - Helpers
+
     func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (store: FeedStoreSpy, sut: LocalFeedLoader) {
         let store = FeedStoreSpy()
         let sut = LocalFeedLoader(store: store, currentDate: currentDate)
