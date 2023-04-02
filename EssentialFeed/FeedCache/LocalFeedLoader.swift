@@ -30,8 +30,8 @@ final class LocalFeedLoader {
         }
     }
 
-    func load() {
-        store.retrieve()
+    func load(completion: @escaping FeedStore.RetrievalCompletion) {
+        store.retrieve(completion: completion)
     }
 
     func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
