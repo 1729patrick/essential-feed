@@ -15,7 +15,7 @@ class FeedStoreSpy: FeedStore  {
 
     enum ReceivedMessages: Equatable {
         case deleteCachedFeed
-        case insert([LocalFeedItem], Date)
+        case insert([LocalFeedImage], Date)
         case retrieve
     }
 
@@ -42,7 +42,7 @@ class FeedStoreSpy: FeedStore  {
         insertionCompletions[index](nil)
     }
 
-    func insert(_ feed: [LocalFeedItem], timestamp: Date, completion: @escaping InsertionCompletion) {
+    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
         insertionCompletions.append(completion)
         receivedMessages.append(.insert(feed, timestamp))
     }
@@ -53,10 +53,14 @@ class FeedStoreSpy: FeedStore  {
     }
 
     func completeRetrieval(with error: Error, at index: Int = 0) {
-        retrievalCompletions[index](error)
+        retrievalCompletions[index](.failure(error))
     }
 
-    func completeRetrievalSuccessfully(at index: Int = 0) {
-        retrievalCompletions[index](nil)
+    func completeRetrievalWithEmptyCache(at index: Int = 0) {
+        retrievalCompletions[index](.empty)
+    }
+
+    func completeRetrieval(with feed: [LocalFeedImage], timestamp: Date, at index: Int = 0) {
+        retrievalCompletions[index](.found(feed: feed, timestamp: timestamp))
     }
 }
