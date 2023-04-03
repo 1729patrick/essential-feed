@@ -33,6 +33,19 @@ final class ValidateFeedCacheUseCacheTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
 
+    func test_load_doesNotDeleteCacheOnLessThanSevenDaysOldCache() {
+        let currentDate = Date()
+        let feed = uniqueFeedImage()
+        let (store, sut) = makeSUT(currentDate: { currentDate })
+
+        let lessThanSevenDaysOldTimestamp = currentDate.adding(days: -7).adding(seconds: 1)
+
+        sut.validateCache()
+        store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
+
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
+
     // MARK: - Helpers
 
     func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (store: FeedStoreSpy, sut: LocalFeedLoader) {
@@ -47,5 +60,23 @@ final class ValidateFeedCacheUseCacheTests: XCTestCase {
 
     private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
+    }
+
+    func uniqueImage() -> FeedImage {
+        FeedImage(
+            id: UUID(),
+            description: "any description",
+            location: "any location",
+            url: URL(string: "https://www.image.com.mt")!
+        )
+    }
+
+    func uniqueFeedImage() -> (models: [FeedImage], local: [LocalFeedImage]) {
+        let models = [uniqueImage(), uniqueImage()]
+        let local = models.map {
+            LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.url)
+        }
+
+        return (models, local)
     }
 }
