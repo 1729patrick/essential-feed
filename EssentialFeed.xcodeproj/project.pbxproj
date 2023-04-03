@@ -34,6 +34,7 @@
 		3BDA03F429DACF740059EBCC /* Date+adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F329DACF740059EBCC /* Date+adding.swift */; };
 		3BDA03F629DAD01C0059EBCC /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F529DAD01C0059EBCC /* FeedCacheTestHelpers.swift */; };
 		3BDA03F829DAD0B60059EBCC /* SharedTestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F729DAD0B60059EBCC /* SharedTestsHelpers.swift */; };
+		3BDA03FA29DB4D660059EBCC /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F929DB4D660059EBCC /* FeedCachePolicy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		3BDA03F329DACF740059EBCC /* Date+adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+adding.swift"; sourceTree = "<group>"; };
 		3BDA03F529DAD01C0059EBCC /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
 		3BDA03F729DAD0B60059EBCC /* SharedTestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestsHelpers.swift; sourceTree = "<group>"; };
+		3BDA03F929DB4D660059EBCC /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				3BDA03DC29D8B5760059EBCC /* LocalFeedLoader.swift */,
 				3BDA03DE29D8B5D00059EBCC /* FeedStore.swift */,
 				3BDA03E229D8E34B0059EBCC /* LocalFeedImage.swift */,
+				3BDA03F929DB4D660059EBCC /* FeedCachePolicy.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BC3183829D5C92400922866 /* ContentView.swift in Sources */,
+				3BDA03FA29DB4D660059EBCC /* FeedCachePolicy.swift in Sources */,
 				3BC3183629D5C92400922866 /* EssentialFeedApp.swift in Sources */,
 				3BC3186A29D6CD8D00922866 /* HTTPClient.swift in Sources */,
 				3BDA03DD29D8B5760059EBCC /* LocalFeedLoader.swift in Sources */,
