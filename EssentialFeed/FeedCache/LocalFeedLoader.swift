@@ -19,6 +19,19 @@ final class LocalFeedLoader {
         self.currentDate = currentDate
     }
 
+    private func validate(_ timestamp: Date) -> Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        let maxCacheAgeInDays = 7
+
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
+            return false
+        }
+
+        return currentDate() < maxCacheAge
+    }
+}
+
+extension LocalFeedLoader {
     func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         store.deleteCachedFeed { [weak self] error in
             guard let self = self else { return }
@@ -31,6 +44,15 @@ final class LocalFeedLoader {
         }
     }
 
+    func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
+        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] error in
+            guard self != nil else { return }
+            completion(error)
+        }
+    }
+}
+
+extension LocalFeedLoader {
     func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -47,7 +69,9 @@ final class LocalFeedLoader {
             }
         }
     }
+}
 
+extension LocalFeedLoader {
     func validateCache() {
         store.retrieve { [weak self] result in
             guard let self = self else { return }
@@ -60,24 +84,6 @@ final class LocalFeedLoader {
             case .empty, .found:
                 break
             }
-        }
-    }
-
-    private func validate(_ timestamp: Date) -> Bool {
-        let calendar = Calendar(identifier: .gregorian)
-        let maxCacheAgeInDays = 7
-        
-        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
-            return false
-        }
-
-        return currentDate() < maxCacheAge
-    }
-
-    func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] error in
-            guard self != nil else { return }
-            completion(error)
         }
     }
 }
