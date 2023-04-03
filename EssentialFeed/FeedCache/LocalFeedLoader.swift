@@ -8,9 +8,7 @@
 import Foundation
 
 struct FeedCachePolicy {
-    let currentDate: () -> Date
-
-    func validate(_ timestamp: Date) -> Bool {
+    func validate(_ timestamp: Date, against date: Date) -> Bool {
         let calendar = Calendar(identifier: .gregorian)
         let maxCacheAgeInDays = 7
 
@@ -18,19 +16,18 @@ struct FeedCachePolicy {
             return false
         }
 
-        return currentDate() < maxCacheAge
+        return date < maxCacheAge
     }
 }
 
 final class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
-    private let cachePolicy: FeedCachePolicy
+    private let cachePolicy = FeedCachePolicy()
 
     init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
-        self.cachePolicy = FeedCachePolicy(currentDate: currentDate)
     }
 }
 
@@ -68,7 +65,7 @@ extension LocalFeedLoader: FeedLoader {
             case .failure(let error):
                 completion(.failure(error))
 
-            case .found(let feed, let timestamp) where self.cachePolicy.validate(timestamp):
+            case .found(let feed, let timestamp) where self.cachePolicy.validate(timestamp, against: currentDate()):
                 completion(.success(feed.toModels()))
 
             case .empty, .found:
