@@ -50,11 +50,17 @@ final class LocalFeedLoader {
     }
 
     func validateCache() {
-        store.retrieve { _ in }
-        store.deleteCachedFeed { _ in }
+        store.retrieve { [unowned self] result in
+            switch result {
+            case .failure:
+                self.store.deleteCachedFeed { _ in }
+            default:
+                break
+            }
+        }
     }
 
-    func validate(_ timestamp: Date) -> Bool {
+    private func validate(_ timestamp: Date) -> Bool {
         let calendar = Calendar(identifier: .gregorian)
         let maxCacheAgeInDays = 7
         
