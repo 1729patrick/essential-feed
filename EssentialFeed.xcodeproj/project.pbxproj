@@ -32,6 +32,8 @@
 		3BDA03EB29D974F70059EBCC /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03EA29D974F70059EBCC /* FeedStoreSpy.swift */; };
 		3BDA03F229DACAAD0059EBCC /* ValidateFeedCacheUseCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F129DACAAD0059EBCC /* ValidateFeedCacheUseCacheTests.swift */; };
 		3BDA03F429DACF740059EBCC /* Date+adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F329DACF740059EBCC /* Date+adding.swift */; };
+		3BDA03F629DAD01C0059EBCC /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F529DAD01C0059EBCC /* FeedCacheTestHelpers.swift */; };
+		3BDA03F829DAD0B60059EBCC /* SharedTestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA03F729DAD0B60059EBCC /* SharedTestsHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		3BDA03EA29D974F70059EBCC /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
 		3BDA03F129DACAAD0059EBCC /* ValidateFeedCacheUseCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCacheTests.swift; sourceTree = "<group>"; };
 		3BDA03F329DACF740059EBCC /* Date+adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+adding.swift"; sourceTree = "<group>"; };
+		3BDA03F529DAD01C0059EBCC /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
+		3BDA03F729DAD0B60059EBCC /* SharedTestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestsHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				3BC3187129D7501100922866 /* XCTestCase+trackForMemoryLeaks.swift */,
+				3BDA03F729DAD0B60059EBCC /* SharedTestsHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				3BDA03EA29D974F70059EBCC /* FeedStoreSpy.swift */,
 				3BDA03F329DACF740059EBCC /* Date+adding.swift */,
+				3BDA03F529DAD01C0059EBCC /* FeedCacheTestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -398,9 +404,11 @@
 				3BC3184729D5C92700922866 /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				3BDA03EB29D974F70059EBCC /* FeedStoreSpy.swift in Sources */,
 				3BBE368D29D86D18008112A9 /* CacheFeedUseCaseTests.swift in Sources */,
+				3BDA03F629DAD01C0059EBCC /* FeedCacheTestHelpers.swift in Sources */,
 				3BDA03F429DACF740059EBCC /* Date+adding.swift in Sources */,
 				3BDA03E929D9736F0059EBCC /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				3BDA03F229DACAAD0059EBCC /* ValidateFeedCacheUseCacheTests.swift in Sources */,
+				3BDA03F829DAD0B60059EBCC /* SharedTestsHelpers.swift in Sources */,
 				3BC3186F29D6EF9500922866 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
