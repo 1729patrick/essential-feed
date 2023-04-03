@@ -37,7 +37,6 @@ final class LocalFeedLoader {
             
             switch result {
             case .failure(let error):
-                store.deleteCachedFeed { _ in }
                 completion(.failure(error))
             case .found(let feed, let timestamp) where self.validate(timestamp):
                 completion(.success(feed.toModels()))
@@ -50,6 +49,11 @@ final class LocalFeedLoader {
         }
     }
 
+    func validateCache() {
+        store.retrieve { _ in }
+        store.deleteCachedFeed { _ in }
+    }
+
     func validate(_ timestamp: Date) -> Bool {
         let calendar = Calendar(identifier: .gregorian)
         let maxCacheAgeInDays = 7
@@ -59,7 +63,6 @@ final class LocalFeedLoader {
         }
 
         return currentDate() < maxCacheAge
-
     }
 
     func cache(_ feed: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
