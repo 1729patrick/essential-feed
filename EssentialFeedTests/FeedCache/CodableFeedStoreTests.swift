@@ -10,26 +10,59 @@ import XCTest
 
 class CodableFeedStore {
     private struct Cache: Codable {
-        let feed: [LocalFeedImage]
+        let feed: [CodableFeedImage]
         let timestamp: Date
+
+        var localFeed: [LocalFeedImage] {
+            feed.map { $0.local }
+        }
+    }
+
+    private struct CodableFeedImage: Codable {
+        private let id: UUID
+        private let description: String?
+        private let location: String?
+        private let imageURL: URL
+
+
+        init(_ image: LocalFeedImage) {
+            self.id = image.id
+            self.description = image.description
+            self.location = image.location
+            self.imageURL = image.imageURL
+        }
+
+        var local: LocalFeedImage {
+            LocalFeedImage(
+                id: id,
+                description: description,
+                location: location,
+                imageURL: imageURL
+            )
+        }
     }
 
     private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
 
     func retrieve(completion: @escaping FeedStore.RetrievalCompletion) {
         guard let data = try? Data(contentsOf: storeURL) else {
-           return completion(.empty)
+            return completion(.empty)
         }
 
         let decoder = JSONDecoder()
         let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(feed: cache.feed, timestamp: cache.timestamp))
+        completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
     }
 
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
         let encoder = JSONEncoder()
 
-        let encoded = try! encoder.encode(Cache(feed: feed, timestamp: timestamp))
+        let cache = Cache(
+            feed: feed.map(CodableFeedImage.init),
+            timestamp: timestamp
+        )
+
+        let encoded = try! encoder.encode(cache)
 
         try! encoded.write(to: storeURL)
 
