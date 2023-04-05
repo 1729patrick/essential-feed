@@ -12,9 +12,9 @@ struct FeedCachePolicy {
 
     static let calendar = Calendar(identifier: .gregorian)
 
-    static func validate(_ timestamp: Date, against date: Date) -> Bool {
-        let maxCacheAgeInDays = 7
+    private static var maxCacheAgeInDays: Int { 7 }
 
+    static func validate(_ timestamp: Date, against date: Date) -> Bool {
         guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
             return false
         }
