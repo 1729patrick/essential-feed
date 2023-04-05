@@ -130,12 +130,28 @@ final class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .failure(anyNSError()))
     }
 
-    func test_retrieve_hasNoSideEffectsOnRetrievalError() {
+    func test_retrieve_hasNoSideEffectsOnFailure() {
         let sut = makeSUT()
 
         try! "invalid data".write(to: storeURL(), atomically: false, encoding: .utf8)
 
         expect(sut, toRetrieveTwice: .failure(anyNSError()))
+    }
+    
+
+    func test_insert_overridesPreviouslyInsertedCacheValues() {
+        let sut = makeSUT()
+
+        let firstInsertionError = insert((uniqueImageFeed().local, Date()), to: sut)
+        XCTAssertNil(firstInsertionError, "Expected to insert cache successfully")
+
+        let latestFeed = uniqueImageFeed().local
+        let latestTimestamp = Date()
+
+        let latestInsertionError = insert((latestFeed, latestTimestamp), to: sut)
+        XCTAssertNil(firstInsertionError, "Expected to override cache successfully")
+
+        expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp))
     }
 
     // MARK: - Helpers
@@ -154,15 +170,17 @@ final class CodableFeedStoreTests: XCTestCase {
         try? FileManager.default.removeItem(at: storeURL())
     }
 
-    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: CodableFeedStore) {
+    @discardableResult private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: CodableFeedStore) -> Error? {
         let exp = expectation(description: "Wait for cache insertion")
 
-        sut.insert (cache.feed, timestamp: cache.timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
+        var insertionError: Error?
+        sut.insert (cache.feed, timestamp: cache.timestamp) { receivedError in
+            insertionError = receivedError
             exp.fulfill()
         }
 
         wait(for: [exp], timeout: 1)
+        return insertionError
     }
 
     private func expect(_ sut: CodableFeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file: StaticString = #file, line: UInt = #line) {
