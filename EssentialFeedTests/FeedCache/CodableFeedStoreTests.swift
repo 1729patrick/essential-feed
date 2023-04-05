@@ -63,18 +63,21 @@ class CodableFeedStore {
     }
 
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
-        let encoder = JSONEncoder()
+        do {
+            let encoder = JSONEncoder()
 
-        let cache = Cache(
-            feed: feed.map(CodableFeedImage.init),
-            timestamp: timestamp
-        )
+            let cache = Cache(
+                feed: feed.map(CodableFeedImage.init),
+                timestamp: timestamp
+            )
 
-        let encoded = try! encoder.encode(cache)
+            let encoded = try encoder.encode(cache)
 
-        try! encoded.write(to: storeURL)
-
-        completion(nil)
+            try encoded.write(to: storeURL)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 }
 
@@ -90,18 +93,18 @@ final class CodableFeedStoreTests: XCTestCase {
     }
 
     func test_retrieve_deliverEmptyOnEmptyCache() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         expect(sut, toRetrieve: .empty)
     }
 
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
         expect(sut, toRetrieveTwice: .empty)
     }
 
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         let feed = uniqueImageFeed().local
         let timestamp = Date()
@@ -112,7 +115,7 @@ final class CodableFeedStoreTests: XCTestCase {
     }
 
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         let feed = uniqueImageFeed().local
         let timestamp = Date()
@@ -123,7 +126,7 @@ final class CodableFeedStoreTests: XCTestCase {
     }
 
     func test_retrieve_deliversFailureOnRetrievalError() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         try! "invalid data".write(to: storeURL(), atomically: false, encoding: .utf8)
 
@@ -131,7 +134,7 @@ final class CodableFeedStoreTests: XCTestCase {
     }
 
     func test_retrieve_hasNoSideEffectsOnFailure() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         try! "invalid data".write(to: storeURL(), atomically: false, encoding: .utf8)
 
@@ -140,7 +143,7 @@ final class CodableFeedStoreTests: XCTestCase {
     
 
     func test_insert_overridesPreviouslyInsertedCacheValues() {
-        let sut = makeSUT()
+        let sut = makeSUT(storeURL: storeURL())
 
         let firstInsertionError = insert((uniqueImageFeed().local, Date()), to: sut)
         XCTAssertNil(firstInsertionError, "Expected to insert cache successfully")
@@ -149,15 +152,27 @@ final class CodableFeedStoreTests: XCTestCase {
         let latestTimestamp = Date()
 
         let latestInsertionError = insert((latestFeed, latestTimestamp), to: sut)
-        XCTAssertNil(firstInsertionError, "Expected to override cache successfully")
+        XCTAssertNil(latestInsertionError, "Expected to override cache successfully")
 
         expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp))
     }
 
+    func test_insertion_deliversErrorOnInsertionError() {
+        let invalidStoreURL = URL(string: "invalid://store-url")!
+        let sut = makeSUT(storeURL: invalidStoreURL)
+
+        let feed = uniqueImageFeed().local
+        let timestamp = Date()
+
+        let insertionError = insert((feed, timestamp), to: sut)
+
+        XCTAssertNotNil(insertionError, "Expected cache insertions fails with an error")
+    }
+
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableFeedStore {
-        let sut = CodableFeedStore(storeURL: storeURL())
+    private func makeSUT(storeURL: URL, file: StaticString = #filePath, line: UInt = #line) -> CodableFeedStore {
+        let sut = CodableFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
