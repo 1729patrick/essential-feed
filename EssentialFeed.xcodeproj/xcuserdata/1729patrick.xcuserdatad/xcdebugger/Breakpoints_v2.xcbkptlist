@@ -3,4 +3,129 @@
    uuid = "EE5BC5F6-D6FF-4040-B92C-81C30A408FD7"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialFeediOSTests/FeedViewControllerTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - f191fc8304ca5840"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 69b722170dbfb2a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 6e91bc180f0b9c03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 34bb8fcf5ca57178"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.init(selector: ObjectiveC.Selector) -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 327bdcc3c689aed4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.__allocating_init() -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "7">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 4d52a4b9e00e8d25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.init() -&gt; EssentialFeediOSTests.FeedViewControllerTests"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "D50E0456-2BA1-4A15-8D56-79FF60156BD4 - 774c99f4ba4f24e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialFeediOSTests.FeedViewControllerTests.__deallocating_deinit"
+                  moduleName = "EssentialFeediOSTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/1729patrick/iOS/iOS%20Lead%20Essentials/0.%20Projecs/EssentialFeed/EssentialFeediOSTests/FeedViewControllerTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
