@@ -136,7 +136,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
             "description": model.description,
             "location": model.location,
             "url": model.url.absoluteString
-        ]
+        ].compactMapValues { $0 }
 
         return (model, json)
     }
