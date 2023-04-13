@@ -123,20 +123,20 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         return .failure(error)
     }
 
-    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
-        let model = FeedItem(
+    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedImage, json: [String: Any]) {
+        let model = FeedImage(
             id: id,
             description: description,
             location: location,
-            imageURL: imageURL
+            url: imageURL
         )
 
         let json = [
             "id": model.id.uuidString,
             "description": model.description,
             "location": model.location,
-            "image": model.imageURL.absoluteString
-        ]
+            "url": model.url.absoluteString
+        ].compactMapValues { $0 }
 
         return (model, json)
     }
@@ -173,13 +173,13 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
+        var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
 
         var requestedURLs: [URL] {
             messages.map { $0.url }
         }
 
-        func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void = { _ in }) {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void = { _ in }) {
             messages.append((url, completion))
         }
 
@@ -195,7 +195,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
                 headerFields: nil
             )!
 
-            messages[index].completion(.success(data, response))
+            messages[index].completion(.success((data, response)))
         }
     }
 }
