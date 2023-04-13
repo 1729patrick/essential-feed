@@ -9,7 +9,6 @@ import XCTest
 import UIKit
 //@testable import EssentialFeediOS
 
-
 final class FeedViewController: UIViewController {
     private var loader: LoaderSpy?
 
