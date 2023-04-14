@@ -11,6 +11,7 @@ import EssentialFeed
 
 protocol FeedImageDataLoader {
     func loadImageData(from url: URL)
+    func cancelImageDataLoad(from url: URL)
 }
 
 final class FeedViewController: UITableViewController {
@@ -65,4 +66,8 @@ final class FeedViewController: UITableViewController {
         return cell
     }
 
+    public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellModel = tableModel[indexPath.row]
+        imageLoader?.cancelImageDataLoad(from: cellModel.url)
+    }
 }
