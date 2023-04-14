@@ -46,6 +46,7 @@
 		3BC10FC729E8A9F4002D280F /* XCTestCase+trackForMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FAB29E8A939002D280F /* XCTestCase+trackForMemoryLeaks.swift */; };
 		3BC10FCC29E8AC6F002D280F /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FCB29E8AC6F002D280F /* FeedViewControllerTests.swift */; };
 		3BC10FCE29E8ACC5002D280F /* EssentialFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FCD29E8ACC5002D280F /* EssentialFeedAPIEndToEndTests.swift */; };
+		3BC6E11A29E97413004E5C2E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E11929E97413004E5C2E /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		3BC10FCB29E8AC6F002D280F /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		3BC10FCD29E8ACC5002D280F /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		3BC10FCF29E8AD73002D280F /* EssentialFeediOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeediOS.xctestplan; sourceTree = "<group>"; };
+		3BC6E11929E97413004E5C2E /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				3BC10F3829E8A852002D280F /* Assets.xcassets */,
 				3BC10F3A29E8A852002D280F /* LaunchScreen.storyboard */,
 				3BC10F3D29E8A852002D280F /* Info.plist */,
+				3BC6E11929E97413004E5C2E /* FeedViewController.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 			files = (
 				3BC10F3429E8A850002D280F /* ViewController.swift in Sources */,
 				3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */,
+				3BC6E11A29E97413004E5C2E /* FeedViewController.swift in Sources */,
 				3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

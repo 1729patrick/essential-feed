@@ -8,49 +8,7 @@
 import XCTest
 import UIKit
 @testable import EssentialFeed
-
-
-final class FeedViewController: UITableViewController {
-    private var loader: FeedLoader?
-
-    convenience init(loader: FeedLoader)  {
-        self.init()
-        self.loader = loader
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-
-        load()
-    }
-
-    @objc func load() {
-        refreshControl?.beginRefreshing()
-
-        loader?.load { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
-        }
-    }
-}
-
-class LoaderSpy: FeedLoader {
-    private var completions = [(FeedLoader.Result) -> Void]()
-
-    var loadCallCount: Int {
-        return completions.count
-    }
-
-    func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        completions.append(completion)
-    }
-
-    func completeFeedLoading() {
-        completions[0](.success([]))
-    }
-}
+@testable import EssentialFeediOS
 
 final class FeedViewControllerTests: XCTestCase {
     func test_loadFeedActions_requestFeedFromLoader() {
@@ -110,6 +68,21 @@ final class FeedViewControllerTests: XCTestCase {
         }
     }
 
+    class LoaderSpy: FeedLoader {
+        private var completions = [(FeedLoader.Result) -> Void]()
+
+        var loadCallCount: Int {
+            return completions.count
+        }
+
+        func load(completion: @escaping (FeedLoader.Result) -> Void) {
+            completions.append(completion)
+        }
+
+        func completeFeedLoading() {
+            completions[0](.success([]))
+        }
+    }
 }
 
 private extension FeedViewController {
