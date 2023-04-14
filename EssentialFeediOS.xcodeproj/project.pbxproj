@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B707E5429E96CCA00236B2A /* XCTestCase+trackForMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FAB29E8A939002D280F /* XCTestCase+trackForMemoryLeaks.swift */; };
 		3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F2F29E8A850002D280F /* AppDelegate.swift */; };
 		3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F3129E8A850002D280F /* SceneDelegate.swift */; };
 		3BC10F3429E8A850002D280F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F3329E8A850002D280F /* ViewController.swift */; };
@@ -247,9 +248,9 @@
 		3BC10F7129E8A87C002D280F /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				3BC10FAA29E8A939002D280F /* Helpers */,
 				3BC10F8029E8A8FD002D280F /* FeedAPI */,
 				3BC10FA029E8A939002D280F /* FeedCache */,
-				3BC10FAA29E8A939002D280F /* Helpers */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -549,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B707E5429E96CCA00236B2A /* XCTestCase+trackForMemoryLeaks.swift in Sources */,
 				3BC10FCC29E8AC6F002D280F /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
