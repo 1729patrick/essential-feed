@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4642BD29E9D9190010EDEA /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4642BC29E9D9190010EDEA /* FeedImageDataLoader.swift */; };
+		3B4642C129E9DC530010EDEA /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4642C029E9DC530010EDEA /* FeedRefreshViewController.swift */; };
 		3B707E5429E96CCA00236B2A /* XCTestCase+trackForMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FAB29E8A939002D280F /* XCTestCase+trackForMemoryLeaks.swift */; };
 		3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F2F29E8A850002D280F /* AppDelegate.swift */; };
 		3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F3129E8A850002D280F /* SceneDelegate.swift */; };
@@ -104,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B4642BC29E9D9190010EDEA /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
+		3B4642C029E9DC530010EDEA /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		3BC10F2C29E8A850002D280F /* EssentialFeediOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeediOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC10F2F29E8A850002D280F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC10F3129E8A850002D280F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B4642BA29E9D8CE0010EDEA /* FeedUI */ = {
+			isa = PBXGroup;
+			children = (
+				3B4642BF29E9D93A0010EDEA /* Views */,
+				3B4642BE29E9D92E0010EDEA /* Controllers */,
+			);
+			path = FeedUI;
+			sourceTree = "<group>";
+		};
+		3B4642BB29E9D8F20010EDEA /* FeedImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				3B4642BC29E9D9190010EDEA /* FeedImageDataLoader.swift */,
+			);
+			path = FeedImageLoader;
+			sourceTree = "<group>";
+		};
+		3B4642BE29E9D92E0010EDEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E11929E97413004E5C2E /* FeedViewController.swift */,
+				3B4642C029E9DC530010EDEA /* FeedRefreshViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3B4642BF29E9D93A0010EDEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */,
+				3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3BC10F2329E8A850002D280F = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +259,8 @@
 		3BC10F2E29E8A850002D280F /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				3B4642BB29E9D8F20010EDEA /* FeedImageLoader */,
+				3B4642BA29E9D8CE0010EDEA /* FeedUI */,
 				3BC10FCF29E8AD73002D280F /* EssentialFeediOS.xctestplan */,
 				3BC10F2F29E8A850002D280F /* AppDelegate.swift */,
 				3BC10F3129E8A850002D280F /* SceneDelegate.swift */,
@@ -228,9 +269,6 @@
 				3BC10F3829E8A852002D280F /* Assets.xcassets */,
 				3BC10F3A29E8A852002D280F /* LaunchScreen.storyboard */,
 				3BC10F3D29E8A852002D280F /* Info.plist */,
-				3BC6E11929E97413004E5C2E /* FeedViewController.swift */,
-				3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */,
-				3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -553,6 +591,8 @@
 				3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */,
 				3BC6E11A29E97413004E5C2E /* FeedViewController.swift in Sources */,
 				3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */,
+				3B4642C129E9DC530010EDEA /* FeedRefreshViewController.swift in Sources */,
+				3B4642BD29E9D9190010EDEA /* FeedImageDataLoader.swift in Sources */,
 				3BC6E11E29E9A74B004E5C2E /* UIView+Shimerring.swift in Sources */,
 				3BC6E11C29E992F1004E5C2E /* FeedImageCell.swift in Sources */,
 			);
