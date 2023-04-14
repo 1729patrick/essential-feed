@@ -48,6 +48,7 @@
 		3BC10FCE29E8ACC5002D280F /* EssentialFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10FCD29E8ACC5002D280F /* EssentialFeedAPIEndToEndTests.swift */; };
 		3BC6E11A29E97413004E5C2E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E11929E97413004E5C2E /* FeedViewController.swift */; };
 		3BC6E11C29E992F1004E5C2E /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */; };
+		3BC6E11E29E9A74B004E5C2E /* UIView+Shimerring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		3BC10FCF29E8AD73002D280F /* EssentialFeediOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeediOS.xctestplan; sourceTree = "<group>"; };
 		3BC6E11929E97413004E5C2E /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
+		3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimerring.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				3BC10F3D29E8A852002D280F /* Info.plist */,
 				3BC6E11929E97413004E5C2E /* FeedViewController.swift */,
 				3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */,
+				3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */,
 				3BC6E11A29E97413004E5C2E /* FeedViewController.swift in Sources */,
 				3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */,
+				3BC6E11E29E9A74B004E5C2E /* UIView+Shimerring.swift in Sources */,
 				3BC6E11C29E992F1004E5C2E /* FeedImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
