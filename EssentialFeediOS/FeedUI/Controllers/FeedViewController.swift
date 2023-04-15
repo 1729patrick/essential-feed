@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     private var refreshController: FeedRefreshViewController?
     var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
@@ -18,7 +18,7 @@ final class FeedViewController: UITableViewController, UITableViewDataSourcePref
         self.refreshController = refreshController
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         refreshControl = refreshController?.view
@@ -27,7 +27,7 @@ final class FeedViewController: UITableViewController, UITableViewDataSourcePref
         refreshController?.refresh()
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count
     }
 
