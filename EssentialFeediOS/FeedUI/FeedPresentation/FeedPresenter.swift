@@ -21,7 +21,7 @@ final class FeedPresenter {
 
     static var title: String {
         NSLocalizedString("FEED_VIEW_TITLE",
-                          tableName: "Feed",
+                          tableName: "Localizable",
                           bundle: Bundle(for: FeedPresenter.self),
                           comment: "Title for the feed view"
         )
