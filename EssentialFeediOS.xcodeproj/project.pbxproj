@@ -20,7 +20,7 @@
 		3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F2F29E8A850002D280F /* AppDelegate.swift */; };
 		3BC10F3229E8A850002D280F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F3129E8A850002D280F /* SceneDelegate.swift */; };
 		3BC10F3429E8A850002D280F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC10F3329E8A850002D280F /* ViewController.swift */; };
-		3BC10F3729E8A850002D280F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC10F3529E8A850002D280F /* Main.storyboard */; };
+		3BC10F3729E8A850002D280F /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC10F3529E8A850002D280F /* Feed.storyboard */; };
 		3BC10F3929E8A852002D280F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC10F3829E8A852002D280F /* Assets.xcassets */; };
 		3BC10F3C29E8A852002D280F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BC10F3A29E8A852002D280F /* LaunchScreen.storyboard */; };
 		3BC10F6C29E8A87C002D280F /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BC10F6429E8A87C002D280F /* EssentialFeed.framework */; };
@@ -126,7 +126,7 @@
 		3BC10F2F29E8A850002D280F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BC10F3129E8A850002D280F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BC10F3329E8A850002D280F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3BC10F3629E8A850002D280F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BC10F3629E8A850002D280F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feed.storyboard; sourceTree = "<group>"; };
 		3BC10F3829E8A852002D280F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BC10F3B29E8A852002D280F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BC10F3D29E8A852002D280F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -244,6 +244,7 @@
 			children = (
 				3BC6E11D29E9A74B004E5C2E /* UIView+Shimerring.swift */,
 				3BC6E11B29E992F1004E5C2E /* FeedImageCell.swift */,
+				3BC10F3529E8A850002D280F /* Feed.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,7 +303,6 @@
 				3BC10F2F29E8A850002D280F /* AppDelegate.swift */,
 				3BC10F3129E8A850002D280F /* SceneDelegate.swift */,
 				3BC10F3329E8A850002D280F /* ViewController.swift */,
-				3BC10F3529E8A850002D280F /* Main.storyboard */,
 				3BC10F3829E8A852002D280F /* Assets.xcassets */,
 				3BC10F3A29E8A852002D280F /* LaunchScreen.storyboard */,
 				3BC10F3D29E8A852002D280F /* Info.plist */,
@@ -585,7 +585,7 @@
 			files = (
 				3BC10F3C29E8A852002D280F /* LaunchScreen.storyboard in Resources */,
 				3BC10F3929E8A852002D280F /* Assets.xcassets in Resources */,
-				3BC10F3729E8A850002D280F /* Main.storyboard in Resources */,
+				3BC10F3729E8A850002D280F /* Feed.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,12 +730,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3BC10F3529E8A850002D280F /* Main.storyboard */ = {
+		3BC10F3529E8A850002D280F /* Feed.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3BC10F3629E8A850002D280F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Feed.storyboard;
 			sourceTree = "<group>";
 		};
 		3BC10F3A29E8A852002D280F /* LaunchScreen.storyboard */ = {
