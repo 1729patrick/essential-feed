@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0D0EB029EAD03700AA3A6B /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D0EAF29EAD03700AA3A6B /* FeedPresenter.swift */; };
 		3B4642BD29E9D9190010EDEA /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4642BC29E9D9190010EDEA /* FeedImageDataLoader.swift */; };
 		3B4642C129E9DC530010EDEA /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4642C029E9DC530010EDEA /* FeedRefreshViewController.swift */; };
 		3B4642C329E9E05E0010EDEA /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4642C229E9E05E0010EDEA /* FeedImageCellController.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B0D0EAF29EAD03700AA3A6B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		3B4642BC29E9D9190010EDEA /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		3B4642C029E9DC530010EDEA /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		3B4642C229E9E05E0010EDEA /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				3B4642C829E9F7BF0010EDEA /* FeedViewModel.swift */,
 				3B4642CA29E9FEA50010EDEA /* FeedImageViewModel.swift */,
+				3B0D0EAF29EAD03700AA3A6B /* FeedPresenter.swift */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0D0EB029EAD03700AA3A6B /* FeedPresenter.swift in Sources */,
 				3BC10F3429E8A850002D280F /* ViewController.swift in Sources */,
 				3BC10F3029E8A850002D280F /* AppDelegate.swift in Sources */,
 				3B4642CB29E9FEA50010EDEA /* FeedImageViewModel.swift in Sources */,
