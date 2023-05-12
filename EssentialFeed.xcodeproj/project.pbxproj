@@ -574,7 +574,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3BC10F2729E8A850002D280F /* Build configuration list for PBXProject "EssentialFeediOS" */;
+			buildConfigurationList = 3BC10F2729E8A850002D280F /* Build configuration list for PBXProject "EssentialFeed" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -973,7 +973,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeediOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeediOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeed";
 			};
 			name = Debug;
 		};
@@ -993,7 +993,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeediOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeediOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeed";
 			};
 			name = Release;
 		};
@@ -1095,7 +1095,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeediOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeediOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeed";
 			};
 			name = Debug;
 		};
@@ -1117,7 +1117,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeediOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeediOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeed";
 			};
 			name = Release;
 		};
@@ -1156,7 +1156,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3BC10F2729E8A850002D280F /* Build configuration list for PBXProject "EssentialFeediOS" */ = {
+		3BC10F2729E8A850002D280F /* Build configuration list for PBXProject "EssentialFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BC10F5429E8A852002D280F /* Debug */,
