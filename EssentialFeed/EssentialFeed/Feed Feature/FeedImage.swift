@@ -1,5 +1,6 @@
 //
-//  Copyright © 2018 Essential Developer. All rights reserved.
+// Created by Patrick Battisti Forsthofer on 12/05/2023
+// Copyright © 2023 Patrick Battisti Forsthofer. All rights reserved.
 //
 
 import Foundation
@@ -17,3 +18,4 @@ public struct FeedImage: Hashable {
 		self.url = url
 	}
 }
+
