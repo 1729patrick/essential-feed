@@ -2,6 +2,7 @@
 // Created by Patrick Battisti Forsthofer on 12/05/2023
 // Copyright © 2023 Patrick Battisti Forsthofer. All rights reserved.
 //
+
 import Combine
 import EssentialFeed
 import EssentialFeediOS
@@ -16,7 +17,7 @@ final class LoadResourcePresentationAdapter<Resource, View: ResourceView> {
 	}
 	
 	func loadResource() {
-		presenter?.didStartLoading()
+		presenter?.didStartLoadingFeed()
 		
         cancellable = loader()
             .dispatchOnMainQueue()
