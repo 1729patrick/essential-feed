@@ -50,7 +50,7 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
 		
 		sut = nil
 		store.completeInsertionSuccessfully()
-
+		
 		XCTAssertTrue(received.isEmpty, "Expected no received results after instance has been deallocated")
 	}
 	
@@ -67,7 +67,7 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
 	private func failed() -> LocalFeedImageDataLoader.SaveResult {
 		return .failure(LocalFeedImageDataLoader.SaveError.failed)
 	}
-
+	
 	private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: LocalFeedImageDataLoader.SaveResult, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
 		let exp = expectation(description: "Wait for save completion")
 		

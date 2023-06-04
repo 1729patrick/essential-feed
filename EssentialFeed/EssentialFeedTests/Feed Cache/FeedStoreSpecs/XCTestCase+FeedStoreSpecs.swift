@@ -57,7 +57,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		
 		expect(sut, toRetrieve: .success(CachedFeed(feed: latestFeed, timestamp: latestTimestamp)), file: file, line: line)
 	}
-
+	
 	func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
 		let deletionError = deleteCache(from: sut)
 		
@@ -69,7 +69,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		
 		expect(sut, toRetrieve: .success(.none), file: file, line: line)
 	}
-
+	
 	func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
 		insert((uniqueImageFeed().local, Date()), to: sut)
 		
@@ -111,7 +111,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		
 		XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order", file: file, line: line)
 	}
-
+	
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
